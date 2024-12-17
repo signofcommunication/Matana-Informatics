@@ -20,4 +20,4 @@ const getAllPrestasi = async () => {
   return rows;
 };
 
-export { getAllDosen, getAllMahasiswa, getAllPrestasi, getAllProduk };
+export default { getAllDosen, getAllMahasiswa, getAllPrestasi, getAllProduk };
