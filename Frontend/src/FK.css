@@ -1,0 +1,28 @@
+.fk-container {
+    text-align: center;
+    margin-top: 50px;
+  }
+  
+  .fk-container button {
+    padding: 10px 20px;
+    margin-top: 20px;
+    font-size: 16px;
+    background-color: #007bff;
+    color: rgb(0, 0, 0);
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .fk-container button:hover {
+    background-color: #0056b3;
+  }
+
+.halaman {
+    color: black;
+}
+
+.selamat {
+    color: black;
+}
+  
