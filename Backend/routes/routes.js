@@ -26,6 +26,13 @@ import {
   createAcaraController,
   deleteAcaraController,
 } from "../controllers/acara/acara.js";
+import { getAllProker } from "../models/proker/proker.js";
+import {
+  createProkerController,
+  deleteProkerController,
+  getProkerByIdController,
+  updateProkerController,
+} from "../controllers/proker/proker.js";
 
 const router = express.Router();
 
@@ -54,6 +61,14 @@ router.patch("/acara/:id_agenda", updateAcaraController);
 router.delete("/acara/:id_agenda", deleteAcaraController);
 router.post("/acara", createAcaraController);
 
+// Proker
+router.get("/proker", getAllProker);
+router.get("/proker/:id_proker", getProkerByIdController);
+router.patch("/proker/:id_proker", updateProkerController);
+router.delete("/proker/:id_proker", deleteProkerController);
+router.post("/proker", createProkerController);
+
+// Dosen & Produk
 router.get("/dosen", getDosen);
 router.get("/produk", getProduk);
 
