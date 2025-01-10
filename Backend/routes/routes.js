@@ -30,9 +30,17 @@ import { getAllProker } from "../models/proker/proker.js";
 import {
   createProkerController,
   deleteProkerController,
+  getAllProkerController,
   getProkerByIdController,
   updateProkerController,
 } from "../controllers/proker/proker.js";
+import {
+  createHMJController,
+  deleteHMJController,
+  getAllHMJController,
+  getHMJByIdController,
+  updateHMJController,
+} from "../controllers/hmj/hmj.js";
 
 const router = express.Router();
 
@@ -62,11 +70,18 @@ router.delete("/acara/:id_agenda", deleteAcaraController);
 router.post("/acara", createAcaraController);
 
 // Proker
-router.get("/proker", getAllProker);
+router.get("/proker", getAllProkerController);
 router.get("/proker/:id_proker", getProkerByIdController);
 router.patch("/proker/:id_proker", updateProkerController);
 router.delete("/proker/:id_proker", deleteProkerController);
 router.post("/proker", createProkerController);
+
+// HMJ
+router.get("/hmj", getAllHMJController);
+router.get("/hmj/:id_hmj", getHMJByIdController);
+router.patch("/hmj/:id_hmj", updateHMJController);
+router.delete("/hmj/:id_hmj", deleteHMJController);
+router.post("/hmj", createHMJController);
 
 // Dosen & Produk
 router.get("/dosen", getDosen);
