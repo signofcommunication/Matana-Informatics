@@ -1,15 +1,15 @@
 import {
-  getAllHMJ,
-  getHMJById,
-  createHMJ,
-  updateHMJ,
-  deleteHMJ,
+  getAllHmj,
+  getHmjById,
+  createHmj,
+  updateHmj,
+  deleteHmj,
 } from "../../models/hmj/hmj.js";
 
 // Controller untuk mendapatkan semua HMJ
 export const getAllHMJController = async (req, res) => {
   try {
-    const hmj = await getAllHMJ();
+    const hmj = await getAllHmj();
     res.status(200).json({
       success: true,
       data: hmj,
@@ -26,7 +26,7 @@ export const getAllHMJController = async (req, res) => {
 export const getHMJByIdController = async (req, res) => {
   try {
     const { id_hmj } = req.params;
-    const hmj = await getHMJById(id_hmj);
+    const hmj = await getHmjById(id_hmj);
     res.status(200).json({
       success: true,
       data: hmj,
@@ -43,7 +43,7 @@ export const getHMJByIdController = async (req, res) => {
 export const createHMJController = async (req, res) => {
   try {
     const hmjData = req.body; // Data dikirim melalui request body
-    const result = await createHMJ(hmjData);
+    const result = await createHmj(hmjData);
     res.status(201).json({
       success: true,
       message: "HMJ berhasil ditambahkan",
@@ -62,7 +62,7 @@ export const updateHMJController = async (req, res) => {
   try {
     const { id_hmj } = req.params;
     const updateData = req.body; // Data untuk update dikirim melalui request body
-    const result = await updateHMJ(id_hmj, updateData);
+    const result = await updateHmj(id_hmj, updateData);
     res.status(200).json({
       success: true,
       message: "HMJ berhasil diperbarui",
@@ -79,7 +79,7 @@ export const updateHMJController = async (req, res) => {
 export const deleteHMJController = async (req, res) => {
   try {
     const { id_hmj } = req.params;
-    const result = await deleteHMJ(id_hmj);
+    const result = await updateHmj(id_hmj);
     res.status(200).json({
       success: true,
       message: "HMJ berhasil dihapus",

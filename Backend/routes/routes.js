@@ -83,6 +83,8 @@ router.patch("/hmj/:id_hmj", updateHMJController);
 router.delete("/hmj/:id_hmj", deleteHMJController);
 router.post("/hmj", createHMJController);
 
+// Kerjasama
+
 // Dosen & Produk
 router.get("/dosen", getDosen);
 router.get("/produk", getProduk);
