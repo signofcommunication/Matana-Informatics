@@ -2,13 +2,13 @@ import db from "../../database/db.js";
 
 // Mendapatkan semua acara
 export const getAllAcara = async () => {
-  const [rows] = await db.query("SELECT * FROM acara");
+  const [rows] = await db.query("SELECT * FROM agenda");
   return rows;
 };
 
 // Mendapatkan acara berdasarkan ID
 export const getAcaraById = async id_agenda => {
-  const [rows] = await db.query("SELECT * FROM acara WHERE id_agenda = ?", [
+  const [rows] = await db.query("SELECT * FROM agenda WHERE id_agenda = ?", [
     id_agenda,
   ]);
   if (rows.length === 0) {
@@ -28,7 +28,7 @@ export const createAcara = async acara => {
 
   try {
     const query = `
-      INSERT INTO acara (no, nama_acara, tanggal, keterangan, waktu, tagline)
+      INSERT INTO agenda (no, nama_acara, tanggal, keterangan, waktu, tagline)
       VALUES (?, ?, ?, ?, ?, ?)
     `;
     const result = await db.execute(query, [
@@ -93,7 +93,7 @@ export const updateAcara = async (id_agenda, updateData) => {
     values.push(id_agenda);
 
     const query = `
-      UPDATE acara
+      UPDATE agenda
       SET ${fields.join(", ")}
       WHERE id_agenda = ?
     `;
@@ -116,7 +116,7 @@ export const updateAcara = async (id_agenda, updateData) => {
 // Menghapus acara berdasarkan ID
 export const deleteAcara = async id_agenda => {
   try {
-    const query = "DELETE FROM acara WHERE id_agenda = ?";
+    const query = "DELETE FROM agenda WHERE id_agenda = ?";
     const result = await db.execute(query, [id_agenda]);
 
     if (result.affectedRows === 0) {

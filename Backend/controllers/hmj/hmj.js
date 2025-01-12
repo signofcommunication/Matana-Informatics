@@ -79,7 +79,7 @@ export const updateHMJController = async (req, res) => {
 export const deleteHMJController = async (req, res) => {
   try {
     const { id_hmj } = req.params;
-    const result = await updateHmj(id_hmj);
+    await deleteHmj(id_hmj);
     res.status(200).json({
       success: true,
       message: "HMJ berhasil dihapus",
