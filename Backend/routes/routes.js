@@ -41,6 +41,13 @@ import {
   getHMJByIdController,
   updateHMJController,
 } from "../controllers/hmj/hmj.js";
+import {
+  createDosenController,
+  deleteDosenController,
+  getAllDosenController,
+  getDosenByIdController,
+  updateDosenController,
+} from "../controllers/dosen/dosen.js";
 
 const router = express.Router();
 
@@ -85,8 +92,16 @@ router.post("/hmj", createHMJController);
 
 // Kerjasama
 
-// Dosen & Produk
-router.get("/dosen", getDosen);
+// Dosen
+router.get("/dosen", getAllDosenController);
+router.get("/dosen/:id_dosen", getDosenByIdController);
+router.post("/dosen", createDosenController);
+router.patch("/dosen/:id_dosen", updateDosenController);
+router.delete("/dosen/:id_dosen", deleteDosenController);
+
+// Produk
 router.get("/produk", getProduk);
+
+// Tentang
 
 export default router;

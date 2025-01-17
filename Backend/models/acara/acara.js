@@ -19,31 +19,26 @@ export const getAcaraById = async id_agenda => {
 
 // Menambahkan acara baru
 export const createAcara = async acara => {
-  const { no, nama_acara, tanggal, keterangan, waktu, tagline } = acara;
+  const { nama_acara, tanggal, keterangan } = acara;
+
+  console.log({ nama_acara, tanggal, keterangan });
 
   // Validasi data
-  if (!no || !nama_acara || !tanggal || !waktu) {
-    throw new Error("Field no, nama_acara, tanggal, dan waktu harus diisi");
+  if (!nama_acara || !tanggal || !keterangan) {
+    throw new Error("Field nama_acara, tanggal, dan keterangan harus diisi");
   }
 
   try {
     const query = `
-      INSERT INTO agenda (no, nama_acara, tanggal, keterangan, waktu, tagline)
-      VALUES (?, ?, ?, ?, ?, ?)
+      INSERT INTO agenda (nama_acara, tanggal, keterangan)
+      VALUES (?, ?, ?)
     `;
-    const result = await db.execute(query, [
-      no,
-      nama_acara,
-      tanggal,
-      keterangan,
-      waktu,
-      tagline,
-    ]);
+    const result = await db.execute(query, [nama_acara, tanggal, keterangan]);
     return {
       success: true,
       message: "Acara berhasil ditambahkan",
       data: {
-        id_agenda: result.insertId,
+        id_agenda: result.insertId, // ID yang di-generate otomatis
         ...acara,
       },
     };
