@@ -48,6 +48,13 @@ import {
   getDosenByIdController,
   updateDosenController,
 } from "../controllers/dosen/dosen.js";
+import {
+  createTentangController,
+  deleteTentangController,
+  getAllTentangController,
+  getTentangByIdController,
+  updateTentangController,
+} from "../controllers/tentang/tentang.js";
 
 const router = express.Router();
 
@@ -103,5 +110,10 @@ router.delete("/dosen/:id_dosen", deleteDosenController);
 router.get("/produk", getProduk);
 
 // Tentang
+router.get("/tentang", getAllTentangController);
+router.get("/tentang/:id", getTentangByIdController);
+router.post("/tentang", createTentangController);
+router.delete("/tentang/:id", deleteTentangController);
+router.patch("/tentang/:id", updateTentangController);
 
 export default router;
