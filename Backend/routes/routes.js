@@ -55,6 +55,13 @@ import {
   getTentangByIdController,
   updateTentangController,
 } from "../controllers/tentang/tentang.js";
+import {
+  createKerjasamaController,
+  deleteKerjasamaController,
+  getAllKerjasamaController,
+  getKerjasamaByIdController,
+  updateKerjasamaController,
+} from "../controllers/kerjasama/kerjasama.js";
 
 const router = express.Router();
 
@@ -98,6 +105,11 @@ router.delete("/hmj/:id_hmj", deleteHMJController);
 router.post("/hmj", createHMJController);
 
 // Kerjasama
+router.get("/kerjasama", getAllKerjasamaController);
+router.get("/kerjasama/:id_perusahaan", getKerjasamaByIdController);
+router.post("/kerjasama", createKerjasamaController);
+router.patch("/kerjasama/:id_perusahaan", updateKerjasamaController);
+router.delete("/kerjasama/:id_perusahaan", deleteKerjasamaController);
 
 // Dosen
 router.get("/dosen", getAllDosenController);
